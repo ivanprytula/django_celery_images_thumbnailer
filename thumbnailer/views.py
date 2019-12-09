@@ -19,7 +19,7 @@ class FileUploadForm(forms.Form):
 class HomeView(View):
     def get(self, request):
         form = FileUploadForm()
-        return render(request, 'thumbnailer/home.html', {'form': form})
+        return render(request, 'home.html', {'form': form})
 
     def post(self, request):
         form = FileUploadForm(request.POST, request.FILES)
@@ -37,11 +37,11 @@ class HomeView(View):
             context['task_id'] = task.id
             context['task_status'] = task.status
 
-            return render(request, 'thumbnailer/home.html', context)
+            return render(request, 'home.html', context)
 
         context['form'] = form
 
-        return render(request, 'thumbnailer/home.html', context)
+        return render(request, 'home.html', context)
 
 
 class TaskView(View):
